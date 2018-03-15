@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">SOFitarraN</string>
+    <string name="app_name">FOFBooks</string>
     <string name="oma">THE PURGE </string>
+    <string name="start">Commencer à lire</string>
+    <string name="parametres">Parametres</string>
+    <string name="langue">Langue</string>
+    <string name="credits">Cette applications à été réalisé par Omayma, Sofiane et Lucas dans le cadre d\'un projet Universitaire (2017-2018).</string>
 </resources>
