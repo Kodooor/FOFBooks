@@ -63,4 +63,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.037" />
 
+    <Button
+        android:id="@+id/lucastest"
+        android:layout_width="116dp"
+        android:layout_height="65dp"
+        android:onClick="lancerActiviter"
+        android:text="LucasTest"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="320dp" />
+
 </android.support.constraint.ConstraintLayout>
