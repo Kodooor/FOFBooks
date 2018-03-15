@@ -38,7 +38,7 @@ public class BD extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + DB_TABLE_NAME+ " (_id integer primary key autoincrement, annee text, auteur text, genre text, titre text, resume text );");
+        db.execSQL("create table " + DB_TABLE_NAME+ " (_id integer primary key autoincrement, annee text, auteur text, genre text, titre text, resume text, histoire text );");
     }
 
     /**
@@ -52,7 +52,7 @@ public class BD extends SQLiteOpenHelper {
     /**
      * Insertion d'une chaîne dans la table.
      */
-    public void insertValue( String annee, String auteur, String genre, String titre, String resume) {
+    public void insertValue( String annee, String auteur, String genre, String titre, String resume, String histoire) {
         // La chaîne n'est pas directement ajoutée dans la base.
         // Il faut passer par la création d'une structure intermédiaire ContenValues.
         ContentValues content = new ContentValues();
@@ -62,6 +62,7 @@ public class BD extends SQLiteOpenHelper {
         content.put("genre", genre);
         content.put("titre", titre);
         content.put("resume", resume);
+        content.put("histoire", histoire);
 
 
 
@@ -75,7 +76,7 @@ public class BD extends SQLiteOpenHelper {
      */
     public List<String> getValues() {
         List<String> list = new ArrayList<String>();
-        String[] columns = {"annee","auteur","genre","titre","resume"};
+        String[] columns = {"annee","auteur","genre","titre","resume","histoire"};
         // Exécution de la requête pour obtenir les chaînes et récupération d'un curseur sur ces données.
         Cursor cursor = db.query(DB_TABLE_NAME, columns, null, null, null, null, null);
         // Curseur placé en début des chaînes récupérées.
@@ -87,6 +88,7 @@ public class BD extends SQLiteOpenHelper {
             list.add(cursor.getString(2));
             list.add(cursor.getString(3));
             list.add(cursor.getString(4));
+            list.add(cursor.getString(5));
             // Passage à l'entrée suivante.
             cursor.moveToNext();
         }
@@ -101,7 +103,7 @@ public class BD extends SQLiteOpenHelper {
 
     public Cursor getCursor()
     {
-        String[] columns = {"annee","auteur","genre","titre","resume"};
+        String[] columns = {"annee","auteur","genre","titre","resume","histoire"};
 
         Cursor cursor = db.query(DB_TABLE_NAME, columns, null, null, null, null, null);
         //cursor.moveToFirst();
@@ -125,5 +127,26 @@ public class BD extends SQLiteOpenHelper {
 //                views);
 
 //    }
+
+    public List<String> getHistoireById(String titre) {
+        List<String> list = new ArrayList<String>();
+        String[] columns = {"annee","auteur","genre","titre","resume","histoire"};
+        if (db == null) {
+            return null;
+        }
+        ContentValues row = new ContentValues();
+        Cursor cur = db.rawQuery("select * from Histoires where titre=?", new String[] { String.valueOf(titre) });
+        if (cur.moveToNext()) {
+            list.add(cur.getString(0));
+            list.add(cur.getString(1));
+            list.add(cur.getString(2));
+            list.add(cur.getString(3));
+            list.add(cur.getString(4));
+            list.add(cur.getString(5));
+        }
+        cur.close();
+        db.close();
+        return list;
+    }
 
 }

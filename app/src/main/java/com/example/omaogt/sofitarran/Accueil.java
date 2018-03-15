@@ -2,10 +2,12 @@ package com.example.omaogt.sofitarran;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -37,6 +39,10 @@ public class Accueil extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void ActionStartStory(View view) {
+        Intent intent = new Intent(this, TestStory.class);
+        startActivity(intent);
+    }
 }
 
 
