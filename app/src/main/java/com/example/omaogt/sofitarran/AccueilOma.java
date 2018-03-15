@@ -71,7 +71,7 @@ public class AccueilOma extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Désolée vous etes trop jeune pour jouer à ça... Regardez les autres jeux! ", Toast.LENGTH_LONG).show();
 
                         dialogInterface.cancel();
-                        retourAccueil();
+                        annuler();
                     }
                 });
 
@@ -89,7 +89,11 @@ public class AccueilOma extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void retourAccueil(){
+    public void annuler(){
+        Intent intent = new Intent(AccueilOma.this, Accueil.class);
+        startActivity(intent);
+    }
+    public void retourAccueil(View v){
         Intent intent = new Intent(AccueilOma.this, Accueil.class);
         startActivity(intent);
     }
