@@ -20,7 +20,11 @@
 
 
         <activity android:name=".JeuOma" android:label="THE BEGGINNER'S PURGE">
-        </activity>>
+
+        </activity>
+        <activity android:name=".SQLiteBD" android:label="THE BEGGINNER'SSS PURGE">
+        </activity>
+
     </application>
 
 </manifest>

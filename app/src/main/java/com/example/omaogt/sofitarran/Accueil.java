@@ -28,6 +28,10 @@ public class Accueil extends AppCompatActivity {
         });
 
     }
+    public void lancerActivity(View view){
+        Intent intent = new Intent(this, SQLiteBD.class);
+        startActivity(intent);
+    }
 
 
 }
