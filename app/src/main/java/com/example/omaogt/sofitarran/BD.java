@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class BD extends SQLiteOpenHelper {
 
+//    private static final String DB_PATH = "/"
     private static final String DB_NAME = "DB";             // Nom de la base.
     private static final String DB_TABLE_NAME = "Histoires";  // Nom de la table.
 
@@ -51,16 +52,18 @@ public class BD extends SQLiteOpenHelper {
     /**
      * Insertion d'une chaîne dans la table.
      */
-    public void insertValue(String annee, String auteur, String genre, String titre, String resume) {
+    public void insertValue( String annee, String auteur, String genre, String titre, String resume) {
         // La chaîne n'est pas directement ajoutée dans la base.
         // Il faut passer par la création d'une structure intermédiaire ContenValues.
         ContentValues content = new ContentValues();
-        // Insertion de la chaîne dans l'instance de ContentValues.
+        // Insertion de la chaîne dans l'instance de ContentValues
         content.put("annee", annee);
         content.put("auteur", auteur);
         content.put("genre", genre);
         content.put("titre", titre);
         content.put("resume", resume);
+
+
 
 
         // Insertion dans la base de l'instance de ContentValues contenant la chapine.
@@ -92,6 +95,9 @@ public class BD extends SQLiteOpenHelper {
 
         return list;
     }
+    public void deleteDB(){
+        db.delete(DB_TABLE_NAME, null, null);
+    }
 
     public Cursor getCursor()
     {
@@ -106,7 +112,7 @@ public class BD extends SQLiteOpenHelper {
     }
 
 //    public SimpleCursorAdapter getAdapter()
-//    {
+//    {String annee, String auteur, String genre, String titre, String resume
 //        String[] columns = {"value"};
 //        int[] views = { R.id.text1 };
 //        Cursor cursor = db.query(DB_TABLE_NAME, columns, null, null, null, null, null);

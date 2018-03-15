@@ -17,6 +17,7 @@ import android.widget.SimpleCursorAdapter;
 import android.database.Cursor;
 import java.util.List;
 import android.util.Log;
+import android.widget.Toast;
 
 
 public class SQLiteBD extends Activity
@@ -65,11 +66,20 @@ public class SQLiteBD extends Activity
         // Insertion dans la base de données.
 //        if( et0.getText().length() != 0 )
 //        {
-            bd.insertValue("1999", "soso","horreur","film horreur","ceci est un film horrifiant" );
+        bd.insertValue( "2000","Sofiane","Horreur","La nuit des temps", "Ce film fait peur" );
+        bd.insertValue( "2001","Lucas","Thriller","Mais que vas t-il se passer??", "Ce film fait peur" );
+        bd.insertValue( "2002","Omayma","Action","Men in black", "Ce film fait peur" );
+
 //            cursor.requery();
-//            sca.notifyDataSetChanged();
+        Toast.makeText(getApplicationContext(), "insertIntoDB", Toast.LENGTH_LONG).show();
+            //sca.notifyDataSetChanged();
 //        }
         Log.d("BD_TEST", "insert");
     }
+    public void deleteDB(View v){
+        bd.deleteDB();
+        //sca.notifyDataSetChanged();
+        Toast.makeText(getApplicationContext(), "deleteDB", Toast.LENGTH_LONG).show();
 
+    }
 }
