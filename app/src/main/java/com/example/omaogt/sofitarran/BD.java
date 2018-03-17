@@ -137,12 +137,12 @@ public class BD extends SQLiteOpenHelper {
         ContentValues row = new ContentValues();
         Cursor cur = db.rawQuery("select * from Histoires where titre=?", new String[] { String.valueOf(titre) });
         if (cur.moveToNext()) {
-            list.add(cur.getString(0));
             list.add(cur.getString(1));
             list.add(cur.getString(2));
             list.add(cur.getString(3));
             list.add(cur.getString(4));
             list.add(cur.getString(5));
+            list.add(cur.getString(6));
         }
         cur.close();
         db.close();

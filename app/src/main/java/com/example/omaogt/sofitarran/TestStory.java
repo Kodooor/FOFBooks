@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 /**
  * Created by filleul on 15/03/18.
@@ -26,9 +27,8 @@ public class TestStory extends AppCompatActivity {
         setContentView(R.layout.storytest);
         bd = new BD(this);
         cursor = bd.getCursor();
-        ArrayAdapter<String> ad = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,this.bd.getHistoireById("Men in black"));
-        ListView lv0 = ( ListView )findViewById( R.id.listviewbis );
-        lv0.setAdapter( ad );
+        ArrayAdapter<String> ad = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, this.bd.getHistoireById("Men in black"));
+        ListView lv0 = (ListView) findViewById(R.id.listviewbis);
+        lv0.setAdapter(ad);
     }
-
 }
