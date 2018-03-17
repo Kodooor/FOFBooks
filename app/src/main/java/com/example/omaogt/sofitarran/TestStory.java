@@ -27,8 +27,13 @@ public class TestStory extends AppCompatActivity {
         setContentView(R.layout.storytest);
         bd = new BD(this);
         cursor = bd.getCursor();
-        ArrayAdapter<String> ad = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, this.bd.getHistoireById("Men in black"));
+        ArrayAdapter<String> ad = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, this.bd.getListHistoire());
         ListView lv0 = (ListView) findViewById(R.id.listviewbis);
         lv0.setAdapter(ad);
+
     }
+    public void DetailsStory(){
+        Log.d("listView", "COUCOU JE PASSE LA");
+    }
+
 }

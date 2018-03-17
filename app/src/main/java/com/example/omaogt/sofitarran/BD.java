@@ -14,7 +14,6 @@ import android.util.Log;
 import java.util.List;
 import java.util.ArrayList;
 
-
 public class BD extends SQLiteOpenHelper {
 
 //    private static final String DB_PATH = "/"
@@ -148,5 +147,22 @@ public class BD extends SQLiteOpenHelper {
         db.close();
         return list;
     }
+    public List<String> getListHistoire() {
+        List<String> list = new ArrayList<String>();
+        String[] columns = {"titre"};
+        // Exécution de la requête pour obtenir les chaînes et récupération d'un curseur sur ces données.
+        Cursor cursor = db.query(DB_TABLE_NAME, columns, null, null, null, null, null);
+        // Curseur placé en début des chaînes récupérées.
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            // Récupération d'une chaîne et insertion dans une liste.
+            list.add(cursor.getString(0));
+            // Passage à l'entrée suivante.
+            cursor.moveToNext();
+        }
+        // Fermeture du curseur.
+        cursor.close();
 
+        return list;
+    }
 }
