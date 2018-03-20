@@ -14,14 +14,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 /**
  * Created by omaogt on 01/03/2018.
  */
 
 public class AccueilOma extends AppCompatActivity {
     Button alert;
+    private BD bd;
 
-    TextView txt ;
+    TextView titre ;
+    TextView annee ;
+    TextView genre ;
+    TextView auteur ;
+    TextView resume ;
+    String Titreselect;
     String tex="Année : 2022\n \n" +
 
             "Pays :  Etats Unis\n \n"+
@@ -38,11 +46,44 @@ public class AccueilOma extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.accueiloma);
+        bd = new BD(this);
+
+        Intent intent = getIntent();
+        Titreselect = intent.getStringExtra("Titreselect");
+        final ArrayList<String> liste = this.bd.getHistoireById(Titreselect);
 
 
-        txt= (TextView) findViewById(R.id.hist1);
-        txt.setText(tex);
-        txt.startAnimation(AnimationUtils.loadAnimation(AccueilOma.this, android.R.anim.slide_in_left));
+        titre= (TextView) findViewById(R.id.titre);
+        titre.setText(liste.get(3));
+
+        annee= (TextView) findViewById(R.id.annee);
+        annee.setText(liste.get(0));
+
+        genre= (TextView) findViewById(R.id.genre);
+        genre.setText(liste.get(2));
+
+        auteur= (TextView) findViewById(R.id.auteur);
+        auteur.setText(liste.get(1));
+
+        resume= (TextView) findViewById(R.id.resume);
+        resume.setText(liste.get(4));
+
+        //txt.startAnimation(AnimationUtils.loadAnimation(AccueilOma.this, android.R.anim.slide_in_left));
+
+
+
+
+
+        //txt.startAnimation(AnimationUtils.loadAnimation(AccueilOma.this, android.R.anim.slide_in_left));
+
+
+
+
+
+
+
+
+
 
         alert = (Button) findViewById(R.id.jouer);
         alert.setOnClickListener(new View.OnClickListener() {
@@ -86,15 +127,16 @@ public class AccueilOma extends AppCompatActivity {
 
     public void lancerJeu(){
         Intent intent = new Intent(AccueilOma.this, JeuOma.class);
+        intent.putExtra("Titreselect", Titreselect);
         startActivity(intent);
     }
 
     public void annuler(){
-        Intent intent = new Intent(AccueilOma.this, Accueil.class);
+        Intent intent = new Intent(AccueilOma.this, TestStory.class);
         startActivity(intent);
     }
     public void retourAccueil(View v){
-        Intent intent = new Intent(AccueilOma.this, Accueil.class);
+        Intent intent = new Intent(AccueilOma.this, TestStory.class);
         startActivity(intent);
     }
 

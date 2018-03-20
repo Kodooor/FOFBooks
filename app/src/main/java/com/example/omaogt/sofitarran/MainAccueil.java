@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainAccueil extends AppCompatActivity {
     private BD bd;
 
@@ -18,15 +20,19 @@ public class MainAccueil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d("debug", "MainAccueil.onCreate");
         setContentView(R.layout.main_acceuil);
+        //deleteDB(this);
         bd = new BD(this);
-        insertIntoDB(this);
+        final ArrayList<String> liste = this.bd.getNomAllHistoire();
+        if(liste.size() == 0){
+            insertIntoDB(this);
+        }
     }
 
 //    public void ActionsParams(View view) {
 //
 //    }
     public void ActionStart(View view) {
-        startActivity(new Intent(MainAccueil.this, Accueil.class));
+        startActivity(new Intent(MainAccueil.this, TestStory.class));
     }
     public void ActionCredits(View view) {
         startActivity(new Intent(MainAccueil.this, Pop.class));

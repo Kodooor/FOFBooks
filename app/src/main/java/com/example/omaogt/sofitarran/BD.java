@@ -127,8 +127,8 @@ public class BD extends SQLiteOpenHelper {
 
 //    }
 
-    public List<String> getHistoireById(String titre) {
-        List<String> list = new ArrayList<String>();
+    public ArrayList<String> getHistoireById(String titre) {
+        ArrayList<String> list = new ArrayList<String>();
         String[] columns = {"annee","auteur","genre","titre","resume","histoire"};
         if (db == null) {
             return null;
@@ -149,6 +149,24 @@ public class BD extends SQLiteOpenHelper {
     }
     public List<String> getListHistoire() {
         List<String> list = new ArrayList<String>();
+        String[] columns = {"titre"};
+        // Exécution de la requête pour obtenir les chaînes et récupération d'un curseur sur ces données.
+        Cursor cursor = db.query(DB_TABLE_NAME, columns, null, null, null, null, null);
+        // Curseur placé en début des chaînes récupérées.
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            // Récupération d'une chaîne et insertion dans une liste.
+            list.add(cursor.getString(0));
+            // Passage à l'entrée suivante.
+            cursor.moveToNext();
+        }
+        // Fermeture du curseur.
+        cursor.close();
+
+        return list;
+    }
+    public ArrayList<String> getNomAllHistoire() {
+        ArrayList<String> list = new ArrayList<String>();
         String[] columns = {"titre"};
         // Exécution de la requête pour obtenir les chaînes et récupération d'un curseur sur ces données.
         Cursor cursor = db.query(DB_TABLE_NAME, columns, null, null, null, null, null);

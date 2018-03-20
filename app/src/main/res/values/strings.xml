@@ -4,5 +4,6 @@
     <string name="start">Commencer à lire</string>
     <string name="parametres">Parametres</string>
     <string name="langue">Langue</string>
+    <string name="storieslist">Les histoires :</string>
     <string name="credits">Cette applications à été réalisé par Omayma, Sofiane et Lucas dans le cadre d\'un projet Universitaire (2017-2018).</string>
 </resources>
