@@ -2,6 +2,8 @@ package com.example.omaogt.sofitarran;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MainAccueil extends AppCompatActivity {
     private BD bd;
@@ -18,6 +21,12 @@ public class MainAccueil extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        Locale locale = new Locale(pref.getString("lang_code","fr"));
+        Locale.setDefault(locale);
+        Configuration config = getBaseContext().getResources().getConfiguration();
+        config.locale= locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         Log.d("debug", "MainAccueil.onCreate");
         setContentView(R.layout.main_acceuil);
         //deleteDB(this);
@@ -28,11 +37,11 @@ public class MainAccueil extends AppCompatActivity {
         }
     }
 
-//    public void ActionsParams(View view) {
-//
-//    }
     public void ActionStart(View view) {
         startActivity(new Intent(MainAccueil.this, TestStory.class));
+    }
+    public void ActionParams(View view) {
+        startActivity(new Intent(MainAccueil.this, Reglages.class));
     }
     public void ActionCredits(View view) {
         startActivity(new Intent(MainAccueil.this, Pop.class));

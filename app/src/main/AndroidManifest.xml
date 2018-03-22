@@ -22,7 +22,7 @@
         <activity android:name=".JeuOma"></activity>
         <activity android:name=".TestStory"></activity>
         <activity android:name=".Pop" android:theme="@style/AppTheme.CustomTheme"></activity>
-        <activity android:name=".SQLiteBD"></activity>
+        <activity android:name=".Reglages" android:theme="@style/AppTheme.CustomTheme"></activity>
 
     </application>
 
