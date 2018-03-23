@@ -21,13 +21,6 @@ public class MainAccueil extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
-        Locale locale = new Locale(pref.getString("lang_code","fr"));
-        Locale.setDefault(locale);
-        Configuration config = getBaseContext().getResources().getConfiguration();
-        config.locale= locale;
-        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-        Log.d("debug", "MainAccueil.onCreate");
         setContentView(R.layout.main_acceuil);
         //deleteDB(this);
         bd = new BD(this);

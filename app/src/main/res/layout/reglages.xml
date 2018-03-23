@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:configChanges="locale|orientation"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,7 +26,7 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="99dp"
+            android:layout_height="83dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -39,13 +40,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="252dp"
+            android:layout_height="436dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="209dp"
+                android:layout_width="276dp"
                 android:layout_height="62dp"
                 android:layout_weight="1"
                 android:text="@string/langue"
@@ -53,35 +54,10 @@
 
             <Spinner
                 android:id="@+id/langchoose"
-                android:layout_width="match_parent"
+                android:layout_width="368dp"
                 android:layout_height="59dp"
                 android:layout_weight="1" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="CloseWindow"
-                android:background="@color/white"
-                android:text="@string/retour" />
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="Changelanguage"
-                android:background="@android:color/holo_green_light"
-                android:text="@string/valider" />
         </LinearLayout>
 
     </LinearLayout>
