@@ -6,6 +6,10 @@
     <string name="langue">Langue :</string>
     <string name="valider">Valider</string>
     <string name="retour">Retour</string>
+    <string name="desc">Description</string>
+    <string name="read">Lire</string>
+    <string name="alertage">Avez-vous plus de 18 ans ?</string>
     <string name="storieslist">Les histoires :</string>
+    <string name="atention">ATTENTION</string>
     <string name="credits">Cette applications à été réalisé par Omayma, Sofiane et Lucas dans le cadre d\'un projet Universitaire (2017-2018).</string>
 </resources>

@@ -23,7 +23,6 @@ import java.util.Locale;
  */
 
 public class Reglages extends AppCompatActivity{
-    String langue_choisie;
     Locale myLocale;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

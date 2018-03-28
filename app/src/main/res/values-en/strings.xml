@@ -6,6 +6,10 @@
     <string name="langue">Language :</string>
     <string name="valider">Submit</string>
     <string name="retour">Back</string>
+    <string name="desc">Description : </string>
+    <string name="read">Read</string>
+    <string name="alertage">Do you have eighteen years old ?</string>
     <string name="storieslist">Stories :</string>
+    <string name="atention">WARNING</string>
     <string name="credits">This application was realized by Omayma, Sofiane and Lucas as part of a University project (2017-2018).</string>
 </resources>

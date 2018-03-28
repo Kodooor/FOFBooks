@@ -92,8 +92,8 @@ public class AccueilOma extends AppCompatActivity {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(AccueilOma.this);
 
-                builder.setTitle("ERROR");
-                builder.setMessage("Avez-vous plus de 18ans ?? ");
+                builder.setTitle(R.string.attention);
+                builder.setMessage(R.string.alertage);
                 builder.setCancelable(false);
 
                 builder.setPositiveButton("oui", new DialogInterface.OnClickListener() {

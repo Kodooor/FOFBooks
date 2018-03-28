@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Accueil"></activity>
         <activity android:name=".AccueilOma"></activity>
         <activity android:name=".JeuOma"></activity>
         <activity android:name=".TestStory"></activity>

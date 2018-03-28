@@ -24,7 +24,7 @@
                 android:layout_height="78dp"
                 android:layout_weight="1"
                 android:onClick="RetourMainAccueil"
-                android:text="Retour" />
+                android:text="@string/retour" />
 
             <TextView
                 android:id="@+id/textView"
