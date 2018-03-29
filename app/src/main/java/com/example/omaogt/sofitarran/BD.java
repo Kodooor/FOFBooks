@@ -98,6 +98,7 @@ public class BD extends SQLiteOpenHelper {
     }
     public void deleteDB(){
         db.delete(DB_TABLE_NAME, null, null);
+
     }
 
     public Cursor getCursor()
